@@ -1,7 +1,8 @@
-import getSongsByTitle from "@/actions/getSongsByTitle";
-import Header from "@/components/Header";
-import SearchInput from "@/components/SearchInput";
-import { useSearchParams } from "next/navigation";
+import getSongsByTitle from '@/actions/getSongsByTitle';
+import Header from '@/components/Header';
+import SearchInput from '@/components/SearchInput';
+// import { useSearchParams } from 'next/navigation';
+import SearchContent from './components/SearchContent';
 
 type SearchProps = {
   searchParams: {
@@ -11,6 +12,7 @@ type SearchProps = {
 
 export default async function Search({ searchParams }: SearchProps) {
   const songs = await getSongsByTitle(searchParams.title);
+
   return (
     <div className="w-full h-full overflow-hidden overflow-y-auto rounded-lg bg-neutral-900">
       <Header className="from-bg-neutral-900">
@@ -19,6 +21,7 @@ export default async function Search({ searchParams }: SearchProps) {
           <SearchInput />
         </div>
       </Header>
+      <SearchContent songs={songs} />
     </div>
   );
 }

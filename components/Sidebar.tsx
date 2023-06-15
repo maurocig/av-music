@@ -48,7 +48,7 @@ export default function Sidebar({ children, songs }: SidebarProps) {
           <Library songs={songs} />
         </Box>
       </div>
-      <main className="flex-1 h-full py-2 overflow-y-auto">{children}</main>
+      <main className="flex-1 h-full py-2 pr-2 overflow-y-auto">{children}</main>
     </div>
   );
 }
