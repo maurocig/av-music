@@ -1,4 +1,5 @@
 import getSongsByUserId from '@/actions/getSongsByUserId';
+import Player from '@/components/Player';
 import Sidebar from '@/components/Sidebar';
 import ModalProvider from '@/providers/ModalProvider';
 import SupabaseProvider from '@/providers/SupabaseProvider';
@@ -14,7 +15,7 @@ export const metadata = {
   description: 'Custom music for audiovisual content.',
 };
 
-// export const revalidate = 0;
+export const revalidate = 0;
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const userSongs = await getSongsByUserId();
@@ -27,6 +28,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <UserProvider>
             <ModalProvider />
             <Sidebar songs={userSongs}>{children}</Sidebar>
+            <Player />
           </UserProvider>
         </SupabaseProvider>
       </body>

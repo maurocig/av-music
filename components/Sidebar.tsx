@@ -1,12 +1,12 @@
-"use client";
-import { Song } from "@/types";
-import { usePathname } from "next/navigation";
-import { useMemo } from "react";
-import { BiSearch } from "react-icons/bi";
-import { HiHome } from "react-icons/hi";
-import Box from "./Box";
-import Library from "./Library";
-import SidebarItem from "./SidebarItem";
+'use client';
+import { Song } from '@/types';
+import { usePathname } from 'next/navigation';
+import { useMemo } from 'react';
+import { BiSearch } from 'react-icons/bi';
+import { HiHome } from 'react-icons/hi';
+import Box from './Box';
+import Library from './Library';
+import SidebarItem from './SidebarItem';
 
 type SidebarProps = {
   children: React.ReactNode;
@@ -20,15 +20,15 @@ export default function Sidebar({ children, songs }: SidebarProps) {
     () => [
       {
         icon: HiHome,
-        label: "Home",
-        active: pathname !== "/search",
-        href: "/",
+        label: 'Home',
+        active: pathname !== '/search',
+        href: '/',
       },
       {
         icon: BiSearch,
-        label: "Search",
-        active: pathname === "/search",
-        href: "/search",
+        label: 'Search',
+        active: pathname === '/search',
+        href: '/search',
       },
     ],
     [pathname]
@@ -48,7 +48,7 @@ export default function Sidebar({ children, songs }: SidebarProps) {
           <Library songs={songs} />
         </Box>
       </div>
-      <main className="flex-1 h-full py-2 pr-2 overflow-y-auto">{children}</main>
+      <main className="flex-1 h-full py-2 overflow-y-auto md:pr-2">{children}</main>
     </div>
   );
 }
